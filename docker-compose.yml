@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    server:
+        build: ./server
+        container_name: server_container
+        network_mode: host
+          
+    client:
+        build: ./client
+        container_name: client_container
+        entrypoint: ./client.out
+        depends_on:
+            - server
+        network_mode: host
